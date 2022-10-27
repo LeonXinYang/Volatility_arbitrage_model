@@ -3,14 +3,14 @@ Introduction：
 
 0.(Most important) What python files could run?!
 ------
-1. [Result1_and_2_Models.py](Stage2-3_Option and Stock data collection and model/Result1_and_2_Models.py)
-2. [Result3_Models.py](Stage2-3_Option and Stock data collection and model/Result3_Model.py)
+1. [Result1_and_2_Models.py](Stage2-3_Option%20and%20Stock%20data%20collection%20and%20model/Result1_and_2_Models.py)
+2. [Result3_Models.py](Stage2-3_Option%20and%20Stock%20data%20collection%20and%20model/Result3_Model.py)
 
 These two documents could recur all results in the final report.
 
 It could produce all figures in the final report, and all tables (manually) in the final report.
 
-###For file 1: Result1_and_2_Models.py:
+### For file 1: Result1_and_2_Models.py:
 Dataset is complete for file 1.
 
 insert 0 to do 50 times data shuffle and show the graph to check data is with high uncertainty.
@@ -19,7 +19,7 @@ insert 1 to recur the result 1 in the final report (check best model and best lo
 
 insert 2 to recur the result 2 in the final report (check BNN models with different confidence level)
 
-###For file 2: Result3_Models.py:
+### For file 2: Result3_Models.py:
 It will show the result 3 in the final report (NLP models' result)
 
 !!!!Be careful, because the data is so big (6GB), we cannot upload all data, so we only upload a mini data set.
@@ -30,7 +30,7 @@ It will show the result 3 in the final report (NLP models' result)
 In general, there are files in 3 stages. The stage 1 and 2 are data collection and data cleaning.
 The Stage 3 is model building, training, testing, and showing results.
 
-###Stage1 file:
+### Stage1 file:
 About the companies conference call JSON file and audio file collection and preprocessing.
 1. [DataCleaning_Audio_feature_extraction.py](DataCleaning_Audio_feature_extraction.py) -> audio feature extraction from audio
 2. [DataCleaning_Text_Extraction.py](DataCleaning_Text_Extraction.py) -> text extraction from json file
@@ -46,19 +46,19 @@ Why they cannot run?
 5. It costs money to activate the account to build the paid proxy connection (I do not pay money for it anymore)
 
 
-###Stage2 file:
+### Stage2 file:
 About the option / stock data collection and preprocessing.
-1. [Calculated_Implied_Vol.py](Stage2-3_Option and Stock data collection and model/Calculated_Implied_Vol.py) (helper function only, not need to run)
-2. [OptionExtraction.py](Stage2-3_Option and Stock data collection and model/OptionExtraction.py)
+1. [Calculated_Implied_Vol.py](Stage2-3_Option%20and%20Stock%20data%20collection%20and%20model/Calculated_Implied_Vol.py) (helper function only, not need to run)
+2. [OptionExtraction.py](Stage2-3_Option%20and%20Stock%20data%20collection%20and%20model/OptionExtraction.py)
 
 Why it cannot run?
 2. It costs money to activate the account to get the option data (I do not pay money for it anymore)
 
 
-###Stage3 file:
+### Stage3 file:
 About the model building, training, testing, and back test
-1. Result1_and_2_Models.py
-2. Result3_Models.py
+1. [Result1_and_2_Models.py](Stage2-3_Option%20and%20Stock%20data%20collection%20and%20model/Result1_and_2_Models.py)
+2. [Result3_Models.py](Stage2-3_Option%20and%20Stock%20data%20collection%20and%20model/Result3_Model.py)
 
 Both of them could be executed.
 
@@ -68,19 +68,19 @@ Though Stage 1 and 2 files cannot run, I provide the sample result file to you i
 
 You could check each subfolder to see the sample input and the sample output.
 
-*Output of OptionExtraction.py file (Stage2) is the training data [Volatiloty_data](Stage2-3_Option and Stock data collection and model/Training_Data/train_data.json)
+*Output of OptionExtraction.py file (Stage2) is the training data [Volatiloty_data](Stage2-3_Option%20and%20Stock%20data%20collection%20and%20model/Training_Data/train_data.json)
 
 Sample results of Stage 1 files:
-[Sample result folder](Sample result)
+[Sample result folder](Sample%20result)
 
 3.Dataset:
 ------
 The dataset for Result1_and_2_Models.py is complete, in the Train_Data folder, call 'train_data.json'
-[Volatiloty_data](Stage2-3_Option and Stock data collection and model/Training_Data/train_data.json)
+[Volatiloty_data](Stage2-3_Option%20and%20Stock%20data%20collection%20and%20model/Training_Data/train_data.json)
 
 The dataset for Result3_Models.py is incomplete, in the Train_Data folder, call 'train_data_multi_modal_small.json'
-[NLP_data](Stage2-3_Option and Stock data collection and model/Training_Data/train_data_multi_modal_small.json)
+[NLP_data](Stage2-3_Option%20and%20Stock%20data%20collection%20and%20model/Training_Data/train_data_multi_modal_small.json)
 
 4.More details:
 ------
-For more rationales and details, you could look at the code comment directly or look at the paper.
+For more rationales and details, you could look at the code comment directly or look at our final report.
