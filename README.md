@@ -3,40 +3,45 @@ Introduction：
 
 0.(Most important) What python files could run?!
 ------
-1. [Result1_and_2_Models.py](Stage2-3_Option%20and%20Stock%20data%20collection%20and%20model/Result1_and_2_Models.py)
-2. [Result3_Models.py](Stage2-3_Option%20and%20Stock%20data%20collection%20and%20model/Result3_Model.py)
+File 1. [Result1_and_2_Models.py](Stage2-3_Option%20and%20Stock%20data%20collection%20and%20model/Result1_and_2_Models.py)
+
+File 2. [Result3_Models.py](Stage2-3_Option%20and%20Stock%20data%20collection%20and%20model/Result3_Model.py)
 
 These two documents could recur all results in the final report.
 
 It could produce all figures in the final report, and all tables (manually) in the final report.
 
-### For file 1: Result1_and_2_Models.py:
-Dataset is complete for file 1.
+### For the File 1: Result1_and_2_Models.py:
+Dataset is complete for the File 1. The file will request you to input 0 or 1 or 2.
 
-insert 0 to do 50 times data shuffle and show the graph to check data is with high uncertainty.
+Insert 0 to do 50 times data shuffle and show the training data is with high uncertainty, showing by the graph.
 
-insert 1 to recur the result 1 in the final report (check best model and best loss function)
+Insert 1 to recur the result 1 in the final report (train and back-test the best model and best loss function)
 
-insert 2 to recur the result 2 in the final report (check BNN models with different confidence level)
+Insert 2 to recur the result 2 in the final report (train and back-test the BNN models with different confidence level)
 
-### For file 2: Result3_Models.py:
-It will show the result 3 in the final report (NLP models' result)
+### For the File 2: Result3_Models.py:
+It will show the result 3 in the final report (the NLP models' result)
 
-!!!!Be careful, because the data is so big (6GB), we cannot upload all data, so we only upload a mini data set.
+!!!!Be careful, because the data for the File 2 is so big (6GB), we cannot upload all data, so we only upload a mini data set.
 
 
 1.All other files:
 ------
-In general, there are files in 3 stages. The stage 1 and 2 are data collection and data cleaning.
+In general, all files are in 3 stages. The stage 1 and 2 are data collection and data cleaning.
 The Stage 3 is model building, training, testing, and showing results.
 
 ### Stage1 file:
 About the companies conference call JSON file and audio file collection and preprocessing.
-1. [DataCleaning_Audio_feature_extraction.py](DataCleaning_Audio_feature_extraction.py) -> audio feature extraction from audio
-2. [DataCleaning_Text_Extraction.py](DataCleaning_Text_Extraction.py) -> text extraction from json file
-3. [DataCleaning_Text_feature_extraction.py](DataCleaning_Text_feature_extraction.py) -> text feature extraction from text
-4. [DataCollection_audio_collection.py](DataCollection_audio_collection.py) -> collect audio
-5. [DataCollection_text_collection.py](DataCollection_text_collection.py) -> collect transcript as JSON file.
+File 1. [DataCleaning_Audio_feature_extraction.py](DataCleaning_Audio_feature_extraction.py) -> audio feature extraction from audio
+
+File 2. [DataCleaning_Text_Extraction.py](DataCleaning_Text_Extraction.py) -> text extraction from json file
+
+File 3. [DataCleaning_Text_feature_extraction.py](DataCleaning_Text_feature_extraction.py) -> text feature extraction from text
+
+File 4. [DataCollection_audio_collection.py](DataCollection_audio_collection.py) -> collect audio
+
+File 5. [DataCollection_text_collection.py](DataCollection_text_collection.py) -> collect transcript as JSON file.
 
 Why they cannot run?
 1. File1: It needs to install the Aeneas and Parsemouth to make it run and the total dataset > 700GB (all audio clips).
@@ -66,9 +71,9 @@ Both of them could be executed.
 ------
 Though Stage 1 and 2 files cannot run, I provide the sample result file to you in the Sample result folder.
 
-You could check each subfolder to see the sample input and the sample output.
+You could check each subfolder to see the sample input and the sample output. It could give you some ideas about how data is collected and preprocessed.
 
-*Output of OptionExtraction.py file (Stage2) is the training data [Volatiloty_data](Stage2-3_Option%20and%20Stock%20data%20collection%20and%20model/Training_Data/train_data.json)
+*The Output of OptionExtraction.py file (Stage2) is the training data [Volatiloty_data](Stage2-3_Option%20and%20Stock%20data%20collection%20and%20model/Training_Data/train_data.json)
 
 Sample results of Stage 1 files:
 [Sample result folder](Sample%20result)
