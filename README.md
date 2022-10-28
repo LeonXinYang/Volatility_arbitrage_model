@@ -33,6 +33,7 @@ The Stage 3 is model building, training, testing, and showing results.
 
 ### Stage1 file:
 About the companies conference call JSON file and audio file collection and preprocessing.
+
 File 1. [DataCleaning_Audio_feature_extraction.py](DataCleaning_Audio_feature_extraction.py) -> audio feature extraction from audio
 
 File 2. [DataCleaning_Text_Extraction.py](DataCleaning_Text_Extraction.py) -> text extraction from json file
@@ -44,6 +45,7 @@ File 4. [DataCollection_audio_collection.py](DataCollection_audio_collection.py)
 File 5. [DataCollection_text_collection.py](DataCollection_text_collection.py) -> collect transcript as JSON file.
 
 Why they cannot run?
+
 1. File1: It needs to install the Aeneas and Parsemouth to make it run and the total dataset > 700GB (all audio clips).
 2. File2: it involves systematically deal with a large amount of document.
 3. File3: It need to upload the Glove300 (10GB too big to upload)
