@@ -39,11 +39,11 @@ About the companies conference call JSON file and audio file collection and prep
 5. [DataCollection_text_collection.py](DataCollection_text_collection.py) -> collect transcript as JSON file.
 
 Why they cannot run?
-1. It needs to install the Aeneas and Parsemouth to make it run and the total dataset > 700GB (all audio clips).
-2. it involves systematically deal with a large amount of document.
-3. It need to upload the Glove300 (10GB too big to upload)
-4. It costs money to activate the account to build the paid proxy connection (I do not pay money for it anymore)
-5. It costs money to activate the account to build the paid proxy connection (I do not pay money for it anymore)
+1. File1: It needs to install the Aeneas and Parsemouth to make it run and the total dataset > 700GB (all audio clips).
+2. File2: it involves systematically deal with a large amount of document.
+3. File3: It need to upload the Glove300 (10GB too big to upload)
+4. File4: It costs money to activate the account to build the paid proxy connection (I do not pay money for it anymore)
+5. File5: It costs money to activate the account to build the paid proxy connection (I do not pay money for it anymore)
 
 
 ### Stage2 file:
@@ -52,7 +52,7 @@ About the option / stock data collection and preprocessing.
 2. [OptionExtraction.py](Stage2-3_Option%20and%20Stock%20data%20collection%20and%20model/OptionExtraction.py)
 
 Why it cannot run?
-2. It costs money to activate the account to get the option data (I do not pay money for it anymore)
+File2: It costs money to activate the account to connect API to get the option data (I do not pay money for it anymore)
 
 
 ### Stage3 file:
