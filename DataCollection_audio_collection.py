@@ -21,15 +21,15 @@ Methods:
 
 """
 
-def search_audio_path():
+def search_audio_path(path ):
     """
     to collect the audio path from the dir
     """
     count = 0
-    check = json.load(open("/Volumes/My Passport/Research Data/SP500Audio/CheckComplete.json"))
+    check = json.load(open(path + "/CheckComplete.json"))
     sp500list = os.listdir("JsonSp500/")
     for each in sp500list:
-        if os.listdir("/Volumes/My Passport/Research Data/SP500Audio").__contains__(each):
+        if os.listdir(path + "/SP500Audio").__contains__(each):
             list = []
             for files in os.listdir("JsonSp500/"+each):
                 js = json.load(open("JsonSp500/"+each+"/"+files))
@@ -40,13 +40,13 @@ def search_audio_path():
                         list.append(js['data']['attributes']['transcriptPath'])
             for audio in list:
                 name = audio[audio.rfind("/")+1:]
-                if not os.listdir("/Volumes/My Passport/Research Data/SP500_stopword_semantics/" + each).__contains__(name):
+                if not os.listdir(path + "SP500_stopword_semantics/" + each).__contains__(name):
                     print("debug download!")
                     DataCollection_text_collection.try_get_sp500_mp3(DataCollection_text_collection.build_proxy_vpn(), each, audio)
                     count+=1
                     print("debug download!: " + str(count))
-        if not os.listdir("/Volumes/My Passport/Research Data/SP500Audio").__contains__(each):
-            os.makedirs("/Volumes/My Passport/Research Data/SP500_stopword_semantics/"+each)
+        if not os.listdir(path + "/SP500Audio").__contains__(each):
+            os.makedirs(path + "/SP500_stopword_semantics/"+each)
             list = []
             for files in os.listdir("JsonSp500/"+each):
                 js = json.load(open("JsonSp500/"+each+"/"+files))
@@ -61,10 +61,8 @@ def search_audio_path():
                 DataCollection_text_collection.try_get_sp500_mp3(DataCollection_text_collection.build_proxy_vpn(), each, audio)
                 count+=1
                 #check[each].append(audio[audio.rfind("/")+1:])
-                #json.dump(check,open("/Volumes/My Passport/Research Data/SP500_stopword_semantics/CheckComplete.json","w"))
                 print("count" + str(count))
             #check[each].append("complete")
-            #json.dump(check,open("/Volumes/My Passport/Research Data/SP500_stopword_semantics/CheckComplete.json","w"))
     print(count)
 
 

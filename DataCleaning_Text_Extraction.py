@@ -57,9 +57,9 @@ def article_with_audio()-> list:
     :return: The list of document number with audio
     """
     output = []
-    sp500audio = os.listdir("/Volumes/My Passport/Research Data/SP500Audio/")
+    sp500audio = os.listdir("SP500Audio/")
     for each in sp500audio[1:]:
-        str = "/Volumes/My Passport/Research Data/SP500_stopword_semantics/"+each+"/"
+        str = "SP500_stopword_semantics/"+each+"/"
         for audio in os.listdir(str):
             output.append((each,audio[:-4]))
     return output

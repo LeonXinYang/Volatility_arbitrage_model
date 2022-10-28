@@ -95,7 +95,6 @@ def find_semantic(file_open_path : str, dict_semantic : dict) -> list :
     '''
     text =  remove_stop_word("stopwords-en-master/stopwords-en.txt",
                              json.load(open(file_open_path,"r")))
-    #f = pd.read_excel('/Users/leon/Desktop/python learn/pythonProject/Updated_LoughranMcDonald_MasterDictionary_2020.xlsx')
     #print(f)
     dict = dict_semantic
     num=0
@@ -188,11 +187,11 @@ def main():
     """
     dictionary_semantic = semantic_dictionary_as_vector()
     dictionary_vectorization = load_embedding()
-    os.chdir("/Users/leon/Desktop/python learn/pythonProject/SP500SentenceListAfterClean0402")
+    os.chdir("SP500SentenceListAfterClean0402")
     for root, dirs, files in os.walk(".", topdown=False):
         for name in files:
             file = str(os.path.join(root, name))[1:]
-            filename = "/Users/leon/Desktop/python learn/pythonProject/SP500SentenceListAfterClean0402" + file
+            filename = "SP500SentenceListAfterClean0402" + file
             find_word_vectorization(find_semantic(filename, dictionary_semantic),filename, dictionary_vectorization)
 
 

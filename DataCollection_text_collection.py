@@ -297,7 +297,7 @@ def callbackfunc(blocknum, blocksize, totalsize):
   if percent > 100:
     percent = 100
   print("%.2f%%"% percent)
-def get_the_sp500_mp3(opener, each, address):
+def get_the_sp500_mp3(opener, each, address,path):
     socket.setdefaulttimeout(5)
     ssl._create_default_https_context = ssl._create_unverified_context
     #url= "https://static.seekingalpha.com/cdn/s3/transcripts_audio/4300690.mp3"
@@ -307,38 +307,38 @@ def get_the_sp500_mp3(opener, each, address):
     #urllib.request.build_opener().addheaders = herders
     #urllib.request.install_opener(opener)
     name = address[address.rfind("/")+1:]
-    urllib.request.urlretrieve(address, "/Volumes/My Passport/Research Data/SP500_stopword_semantics/"+each+"/"+name,callbackfunc)
+    urllib.request.urlretrieve(address, path +each+"/"+name,callbackfunc)
     return
 
 
-def try_get_sp500_mp3(opener,each,address):
+def try_get_sp500_mp3(opener,each,address,path):
     i = 0
     t = time.time()
     delta = 0
     while i < 20 or delta < 60:
         delta = time.time() - t
         try:
-            get_the_sp500_mp3(opener,each, address)
-            onecheck = json.load(open("/Volumes/My Passport/Research Data/SP500Audio/CheckComplete.json"))
+            get_the_sp500_mp3(opener,each, address,path)
+            onecheck = json.load(open(path + "/CheckComplete.json"))
             if(onecheck.__contains__(each)):
                 onecheck[each].append(address[address.rfind("/")+1:])
-                json.dump(onecheck,open("/Volumes/My Passport/Research Data/SP500Audio/CheckComplete.json","w"))
+                json.dump(onecheck,open(path+ "/CheckComplete.json","w"))
             else:
                 for eachs in onecheck:
                     if(onecheck[eachs][-1] != "completed"):
                         onecheck[eachs].append("completed")
                 onecheck[each] = [address[address.rfind("/")+1:]]
-                json.dump(onecheck,open("/Volumes/My Passport/Research Data/SP500Audio/CheckComplete.json","w"))
+                json.dump(onecheck,open(path + "/CheckComplete.json","w"))
             return
         except Exception as e:
             print(e)
             print("error")
             i += 1
     name = address[address.rfind("/")+1:]
-    check = json.load(open("/Volumes/My Passport/Research Data/SP500Audio/UnComplete.json"))
+    check = json.load(open(path + "/UnComplete.json"))
     check.append(each)
     check.append(name)
-    json.dump(check,open("/Volumes/My Passport/Research Data/SP500Audio/UnComplete.json","w"))
+    json.dump(check,open(path + "/UnComplete.json","w"))
 
 
 

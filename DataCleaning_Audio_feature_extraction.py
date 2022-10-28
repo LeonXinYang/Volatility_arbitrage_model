@@ -105,15 +105,14 @@ def clip_the_audio(audio_path,json_output_path):
         num+=1
     return
 
-#clip_the_audio("/Volumes/My Passport/Research Data/SP500Audio/A/4223396.mp3","/Volumes/My Passport/Research Data/SP500Audio/A/4223396.json")
-def clip_audio_all():
+def clip_audio_all(path):
     """
     Cut all audios
     :return: sequences after cutting all audios
     """
     audio_list = []
     json_list = []
-    os.chdir("/Volumes/My Passport/Research Data/SP500Audio/")
+    os.chdir(path)
     n = 0
     for root, dirs, files in os.walk(".", topdown=False):
         for name in files:
@@ -141,12 +140,12 @@ def clip_audio_all():
 
 #clip_audio_all()
 
-def processing_for_all_json_to_txt():
+def processing_for_all_json_to_txt(path):
     """
     Systematically transfer all json file of transcript to text file
     :return:
     """
-    os.chdir("/Users/leon/Desktop/python learn/pythonProject/SP500SentenceListAfterClean0402")
+    os.chdir(path)
     n=0
     for root, dirs, files in os.walk(".", topdown=False):
         for name in files:
@@ -159,12 +158,12 @@ def processing_for_all_json_to_txt():
                 n+=1
 #processing_for_all_json_to_txt()
 
-def txt_audio_to_align_path():
+def txt_audio_to_align_path(path):
     """
     Systematically to complete the force_alignment
     :return:
     """
-    os.chdir("/Users/leon/Desktop/python learn/pythonProject/SP500SentenceListAfterClean0402")
+    os.chdir(path)
     n=0
     txt_list = []
     for root, dirs, files in os.walk(".", topdown=False):
@@ -175,7 +174,6 @@ def txt_audio_to_align_path():
             if txt_path[-3:].__eq__("txt"):
                 txt_list.append(txt_path)
                 n+=1
-    os.chdir("/Volumes/My Passport/Research Data/SP500Audio/")
     audio_list = []
     for root, dirs, files in os.walk(".", topdown=False):
         for name in files:
@@ -201,7 +199,7 @@ def txt_audio_to_align_path():
         for txt_each in txt_list:
             if txt_each[txt_each.rfind("/"):txt_each.rfind(".")].__eq__(num):
                 json_name = audio_each[:audio_each.rfind('.')+1] + "json"
-                txt_each = "/Users/leon/Desktop/python learn/pythonProject/SP500SentenceListAfterClean0402" + txt_each[1:]
+                txt_each = path + txt_each[1:]
                 try:
                     force_alignment(audio_each,txt_each,json_name)
                     n+=1
@@ -273,19 +271,18 @@ def extract_audio_feature(file_path:str) -> list:
     #print(outputlist)
     return outputlist
 
-#extract_audio_feature("/Volumes/My Passport/Research Data/SP500Audio/A/4223396/4223396.96.wav")
-def extract_all_audio_feature():
+def extract_all_audio_feature(path):
     """
     Systematically complete the extract_audio_feature
     :return:
     """
     "The complete list"
-    complete_list = json.load(open("/Users/leon/Desktop/python learn/pythonProject/Complete_list.txt","r"))
+    complete_list = json.load(open(path+ "Complete_list.txt","r"))
     print(len(complete_list))
-    trouble_list = json.load(open("/Users/leon/Desktop/python learn/pythonProject/Trouble_list.txt","r"))
+    trouble_list = json.load(open(path + "Trouble_list.txt","r"))
 
     "Txt_list is the list of each json file's path"
-    os.chdir("/Users/leon/Desktop/python learn/pythonProject/SP500SentenceListAfterClean0402")
+    os.chdir(path + "/SP500SentenceListAfterClean0402")
     n=0
     txt_list = []
     for root, dirs, files in os.walk(".", topdown=False):
@@ -297,7 +294,7 @@ def extract_all_audio_feature():
 
     "Each_txt = each json file path"
     for each_txt in txt_list:
-        os.chdir("/Users/leon/Desktop/python learn/pythonProject/SP500SentenceListAfterClean0402")
+        os.chdir(path + "/SP500SentenceListAfterClean0402")
         json_file = json.load(open(each_txt,"r"))
 
         "Name = unique stock_index/number"
@@ -305,7 +302,7 @@ def extract_all_audio_feature():
         print(name)
         if name[name.find("/")+1:] not in complete_list and name[name.find("/")+1:] not in trouble_list:
             try:
-                os.chdir("/Volumes/My Passport/Research Data/SP500Audio/" + name)
+                os.chdir(path + name)
                 for root, dirs, files in os.walk(".", topdown=False):
                     for names in files:
                         txt_path = os.path.join(root, names)
@@ -323,22 +320,22 @@ def extract_all_audio_feature():
                         else:
                             print(name + "    fail")
                             trouble_list.append(name[name.find("/")+1:])
-                            trouble_file = open("/Users/leon/Desktop/python learn/pythonProject/Trouble_list.txt","w")
+                            trouble_file = open(path + "/Trouble_list.txt","w")
                             trouble_file.write(json.dumps(trouble_list))
                             trouble_file.close()
                             continue
                 complete_list.append(name[name.find("/")+1:])
-                complete_file = open("/Users/leon/Desktop/python learn/pythonProject/Complete_list.txt","w")
+                complete_file = open(path + "/Complete_list.txt","w")
                 complete_file.write(json.dumps(complete_list))
                 complete_file.close()
-                os.chdir("/Users/leon/Desktop/python learn/pythonProject/SP500SentenceListAfterClean0402")
+                os.chdir(path + "SP500SentenceListAfterClean0402")
                 json_file_open = open(each_txt,"w")
                 json_file_open.write(json.dumps(json_file))
                 json_file_open.close()
 
             except:
                 trouble_list.append(name[name.find("/")+1:])
-                trouble_file = open("/Users/leon/Desktop/python learn/pythonProject/Trouble_list.txt","w")
+                trouble_file = open(path + "/Trouble_list.txt","w")
                 trouble_file.write(json.dumps(trouble_list))
                 trouble_file.close()
 
